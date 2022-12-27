@@ -53,11 +53,13 @@
   |Dacon|금융문자 분석 경진대회|153/372|41%|
   |Kaggle|ASHRAE - Great Energy Predictor III|1011/3614|28%|-->
 
+  
+<!--[Velog](https://velog.io/@sungmyeonggi)
 <h3 align="center"> 💫 Contact 💫 </h3>
-<p align="center">
+<a align="center">
   <a href="mailto:jswdev00@gmail.com"><img src="https://img.shields.io/badge/Gmail-d14836?style=flat-square&logo=Gmail&logoColor=white&link=jswdev00@gmail.com"/></a>
   [Tistory](https://myeonggi-dailydevelop0226.tistory.com/)
   [Velog](https://velog.io/@sungmyeonggi)
-  </p>
+  </a>-->
     
 </div>
