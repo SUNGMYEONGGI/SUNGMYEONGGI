@@ -45,7 +45,6 @@
 <img src="https://img.shields.io/badge/Google Colab-F9AB00?style=flat-square&logo=Google Colab&logoColor=white"/>
 
 <br>
-  [![티스토리](https://t1.daumcdn.net/cfile/tistory/99158F3E5FEADCDB21)](https://myeonggi-dailydevelop0226.tistory.com/)
 
 <!--
 - 데이터 분석 대회
@@ -53,20 +52,12 @@
   |---|------|----|----|
   |Dacon|금융문자 분석 경진대회|153/372|41%|
   |Kaggle|ASHRAE - Great Energy Predictor III|1011/3614|28%|-->
-  
-  <h3 align="center">🪄 Blog 🪄</h3>
-  [!(https://i.esdrop.com/d/dLd7n17hg9.png)](https:lynmp.com)
 
-<div align="center" style="text-align:center">
-  
-[티스토리](https://myeonggi-dailydevelop0226.tistory.com/)
-
-</div>
-  
-<br>
-
-
-<!-- <h3 align="center"> 💫 Contact 💫 </h3>
+<h3 align="center"> 💫 Contact 💫 </h3>
 <p align="center">
   <a href="mailto:jswdev00@gmail.com"><img src="https://img.shields.io/badge/Gmail-d14836?style=flat-square&logo=Gmail&logoColor=white&link=jswdev00@gmail.com"/></a>
-</p> -->
+  [Tistory](https://myeonggi-dailydevelop0226.tistory.com/)
+  [Velog](https://velog.io/@sungmyeonggi)
+  </p>
+    
+</div>
