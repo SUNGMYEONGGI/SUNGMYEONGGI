@@ -7,7 +7,7 @@
 
 #
 
-<img align="center" src='https://github-readme-stats.vercel.app/api?username=SUNGMYEONGGI&show_icons=true&theme=tokyonight&count_private=true' width='7%' />
+<img align="center" src='https://github-readme-stats.vercel.app/api?username=SUNGMYEONGGI&show_icons=true&theme=tokyonight&count_private=true' width='73%' />
 
 <br>
 
