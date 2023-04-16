@@ -12,7 +12,7 @@
   |대회|대회명|순위|상위|
   |---|------|----|----|
   |Dacon|금융문자 분석 경진대회|153/372|41%|
-  |Kaggle|ASHRAE - Great Energy Predictor III|1011/3614|28%|-->
+  |Kaggle|ASHRAE - Great Energy Predictor III|1011/3614|28%|
     
 </div>
 
@@ -83,3 +83,4 @@
 
 <p>🏆 Baekjoon solved rank 🏆</p>
 [![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=smg226)](https://solved.ac/smg226/)
+-->
