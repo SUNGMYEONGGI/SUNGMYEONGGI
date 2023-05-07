@@ -1,3 +1,6 @@
+<div align="center"><a href="https://www.buymeacoffee.com/myeonggi"><img width=200 height=200 src="https://64.media.tumblr.com/1ef11062bb6fd25ed9ca23e530be277f/tumblr_no7melG9K51rhr0ezo1_400.gif" /></a></div>
+
+<!--
 ![slice](https://capsule-render.vercel.app/api?type=slice&color=auto&height=200&text=HI&fontAlign=70&rotate=13&fontAlignY=25&desc=Hello%20MyeongGi%20World.&descAlign=70.&descAlignY=44)
 
 
@@ -7,7 +10,6 @@
 
 #
 
-<!--
 - 데이터 분석 대회
   |대회|대회명|순위|상위|
   |---|------|----|----|
