@@ -1,4 +1,4 @@
-<div align="center"><a href="https://www.buymeacoffee.com/myeonggi"><img width=200 height=200 src="https://64.media.tumblr.com/1ef11062bb6fd25ed9ca23e530be277f/tumblr_no7melG9K51rhr0ezo1_400.gif" /></a></div>
+<div align="center"><a href="https://www.buymeacoffee.com/myeonggi"><img width=750 height=300 src="https://media4.giphy.com/media/GNBCVMv6XobnMUMYJG/giphy.gif?cid=6c09b952ag13b3c1slx5c2ybbix0tttymhcmkbsqwltyl64b&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g" /></a></div>
 
 <!--
 ![slice](https://capsule-render.vercel.app/api?type=slice&color=auto&height=200&text=HI&fontAlign=70&rotate=13&fontAlignY=25&desc=Hello%20MyeongGi%20World.&descAlign=70.&descAlignY=44)
