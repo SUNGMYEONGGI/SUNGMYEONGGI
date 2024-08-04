@@ -29,8 +29,8 @@
 | 2021.06 | 제6회 글로벌 이노베이터 페스타(GIF 2021) | 우수상🥉 |
 
 #### 🧩 Skill  
-- Python / SQL
-- Tensorflow / Paandas / Scikit-learn
+- Python / Java / SQL
+- Tensorflow / Pandas / Scikit-learn / Folium
 
 #### 🔗 Connect
 📧 smgsmg226@gmail.com
