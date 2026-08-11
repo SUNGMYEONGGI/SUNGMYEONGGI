@@ -1,3 +1,5 @@
+<img src="https://cdn3.ldstatic.com/original/4X/6/f/3/6f34b405e13552496c3a1c13dec72be8daabcac1.gif" width="200">
+
 #### 🤖 Claude Code Usage
 <!-- CLAUDE-USAGE:START -->
 ```
