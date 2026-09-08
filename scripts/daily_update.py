@@ -4,13 +4,14 @@ from datetime import datetime, timedelta
 import fcntl
 import json
 import os
-from pathlib import Path
+import sqlite3
 import subprocess
 import sys
 import tempfile
 from zoneinfo import ZoneInfo
 
 from sync_usage import ROOT, read_usage, sync
+from token_data import SCHEMA_VERSION
 
 
 def save_state(path, state):
@@ -39,12 +40,14 @@ def main():
         except BlockingIOError:
             raise RuntimeError("Another token sync is running. Retry after it finishes.") from None
         state = json.loads(state_path.read_text()) if state_path.exists() else {}
+        if state.get("schemaVersion") != SCHEMA_VERSION:
+            state = {}
         if state.get("through") == through and state.get("dispatched"):
             print(f"Daily update through {through} already dispatched; skipped.")
             return
         if state.get("through") != through or not state.get("synced"):
             data = sync(config, read_usage(), through=through)
-            state = {"through": through, "synced": True, "dispatched": False}
+            state = {"schemaVersion": SCHEMA_VERSION, "through": through, "synced": True, "dispatched": False}
             save_state(state_path, state)
             print(f"Published {len(data['days'])} daily records through {through}.")
             if through not in data["days"]:
@@ -65,6 +68,6 @@ def main():
 if __name__ == "__main__":
     try:
         main()
-    except (RuntimeError, ValueError, KeyError, OSError, subprocess.TimeoutExpired) as exc:
+    except (RuntimeError, ValueError, KeyError, OSError, sqlite3.Error, subprocess.TimeoutExpired) as exc:
         print(f"Daily update failed: {exc}", file=sys.stderr)
         sys.exit(1)

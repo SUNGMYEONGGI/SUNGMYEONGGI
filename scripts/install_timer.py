@@ -38,7 +38,7 @@ def main():
     units.mkdir(parents=True, exist_ok=True)
     local_path = str(Path.home() / ".local/bin") + ":/usr/local/bin:/usr/bin:/bin:/snap/bin"
     service = f'''[Unit]
-Description=Sync yesterday's Codex activity and update GitHub token grass
+Description=Sync yesterday's Codex and Claude activity and update GitHub token grass
 Wants=network-online.target
 After=network-online.target
 

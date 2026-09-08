@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+from datetime import datetime, timedelta
 import fcntl
 import glob
 import json
@@ -10,12 +11,15 @@ import os
 from pathlib import Path
 import queue
 import shutil
+import sqlite3
 import subprocess
 import sys
 import threading
 import time
+from zoneinfo import ZoneInfo
 
-from token_data import MAX_BYTES, dumps, from_usage, validate
+from claude_usage import read_claude_days
+from token_data import MAX_BYTES, dumps, combine_usage
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -37,7 +41,7 @@ def codex_binary():
 
 def read_usage(timeout=90):
     # No thread is started and no inference runs. Authentication stays inside
-    # Codex; this program never opens auth.json or session/chat history.
+    # Codex; this reader never opens Codex auth.json or Codex session history.
     proc = subprocess.Popen([codex_binary(), "app-server", "--listen", "stdio://"],
                             stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                             stderr=subprocess.DEVNULL, text=True, encoding="utf-8")
@@ -120,7 +124,7 @@ def gh_api(endpoint, *, payload=None):
     return json.loads(result.stdout)
 
 
-def sync(config, usage, *, through=None):
+def sync(config, usage, *, through=None, claude_days=None):
     import re
     gist_id = config["gist_id"]
     if not re.fullmatch(r"[a-f0-9]{32}", gist_id):
@@ -133,8 +137,12 @@ def sync(config, usage, *, through=None):
     if file is None or file.get("truncated"):
         raise ValueError("Gist data is missing or truncated; refusing to overwrite it.")
     previous = json.loads(file["content"])
-    data = from_usage(usage, previous, through=through)
-    gh_api(f"gists/{gist_id}", payload={"files": {filename: {"content": dumps(data)}}})
+    if claude_days is None:
+        claude_days = read_claude_days(config, ROOT / ".local")
+    data = combine_usage(usage, claude_days, previous, through=through)
+    gh_api(f"gists/{gist_id}", payload={
+        "description": "Codex + Claude token activity · 100M tokens per day",
+        "files": {filename: {"content": dumps(data)}}})
     return data
 
 
@@ -152,22 +160,24 @@ def main():
         except BlockingIOError:
             print("Another sync is running; skipped.")
             return
+        config = json.loads(args.config.read_text())
+        through = (datetime.now(ZoneInfo(config["display_timezone"])).date() - timedelta(days=1)).isoformat()
         usage = read_usage()
-        data = from_usage(usage)
+        claude_days = read_claude_days(config, state)
+        data = combine_usage(usage, claude_days, through=through)
         if args.command == "sync":
-            config = json.loads(args.config.read_text())
-            data = sync(config, usage)
+            data = sync(config, usage, through=through, claude_days=claude_days)
         if args.output:
             args.output.write_text(dumps(data), encoding="utf-8")
         keys = sorted(data["days"])
         print(f"{'Published' if args.command == 'sync' else 'Read'} {len(keys)} daily buckets: {keys[0]} → {keys[-1]}")
         print(f"Latest bucket: {keys[-1]} / {data['days'][keys[-1]]:,} tokens")
-        print("Lifetime:", f"{data['summary']['lifetimeTokens']:,}" if "lifetimeTokens" in data["summary"] else "unavailable")
+        print("Combined recorded tokens:", f"{data['summary']['recordedTokens']:,}")
 
 
 if __name__ == "__main__":
     try:
         main()
-    except (RuntimeError, ValueError, KeyError, OSError, subprocess.TimeoutExpired) as exc:
+    except (RuntimeError, ValueError, KeyError, OSError, sqlite3.Error, subprocess.TimeoutExpired) as exc:
         print(f"Sync failed: {exc}", file=sys.stderr)
         sys.exit(1)

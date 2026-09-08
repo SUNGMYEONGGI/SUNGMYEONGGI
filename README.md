@@ -5,5 +5,5 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SUNGMYEONGGI/SUNGMYEONGGI/token-assets/assets/token-activity-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/SUNGMYEONGGI/SUNGMYEONGGI/token-assets/assets/token-activity-light.svg" />
-  <img src="https://raw.githubusercontent.com/SUNGMYEONGGI/SUNGMYEONGGI/token-assets/assets/token-activity-light.svg" width="100%" alt="Codex 실제 일별 토큰 사용량으로 채운 GitHub 스타일 잔디" />
+  <img src="https://raw.githubusercontent.com/SUNGMYEONGGI/SUNGMYEONGGI/token-assets/assets/token-activity-light.svg" width="100%" alt="Codex와 Claude Code의 날짜별 토큰 사용량을 합산한 오션 잔디" />
 </picture>

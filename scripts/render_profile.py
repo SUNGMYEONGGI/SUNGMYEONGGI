@@ -55,12 +55,13 @@ def render_grass(data, theme, *, today=None, now=None):
     updated = datetime.fromisoformat(data["updatedAt"].replace("Z", "+00:00")).astimezone(timezone.utc)
     stale = now - updated > timedelta(hours=48)
     title = f"{total:,} tokens in the last year"
+    label = "Codex + Claude" if data["schemaVersion"] == 2 else "Codex"
     result = [f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="238" viewBox="0 0 900 238" role="img" aria-labelledby="title desc">
   <title id="title">{title}</title>
-  <desc id="desc">Codex token activity through {today.isoformat()}. {len(observed)} recorded days. Each square is one day. Ocean palette: the highest color level means at least 100 million tokens. Outlined squares mean no data. Daily dates are preserved from the account usage service.</desc>
+  <desc id="desc">{label} combined token activity through {today.isoformat()}. {len(observed)} recorded days. Each square is one day and combines the available token counts. Ocean palette: the highest color level means at least 100 million tokens. Outlined squares mean no data.</desc>
   <style>text {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: {p['muted']}; font-size: 11px; }}</style>
   <text x="1" y="22" style="font-size:16px;fill:{p['text']}">{title}</text>
-  <text x="899" y="22" text-anchor="end">Codex · {len(observed)} recorded days</text>
+  <text x="899" y="22" text-anchor="end">{label} · {len(observed)} recorded days</text>
   <rect x="0.5" y="40.5" width="899" height="171" rx="6" fill="{p['bg']}" stroke="{p['border']}"/>
 ''']
     dates = grid_dates(today)
