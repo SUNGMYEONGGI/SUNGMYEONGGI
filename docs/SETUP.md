@@ -66,12 +66,11 @@ gh run list --repo SUNGMYEONGGI/SUNGMYEONGGI --workflow token-grass.yml --limit 
 
 Codex 확장 버전이 바뀌면 수집기는 PATH의 Codex 또는 최신 VS Code Remote 확장 바이너리를 찾습니다. 다른 위치는 `TOKEN_PROFILE_CODEX`로 지정할 수 있습니다. 토큰 활동 메서드가 없어지거나 로그인 세션이 만료되면 수집 로그를 확인하고 Codex를 갱신하거나 다시 로그인합니다.
 
-## 디자인 수정과 검증
+## 디자인 수정
 
 ```bash
 python3 scripts/sync_usage.py probe --output .local/preview-data.json
 python3 scripts/render_profile.py --input .local/preview-data.json
-python3 -m unittest discover -s tests -v
 ```
 
 브라우저에서 [`preview.html`](../preview.html)을 열면 테마를 전환하며 확인할 수 있습니다. 터미널은 [`assets/daily-routine.svg`](../assets/daily-routine.svg), 잔디는 [`scripts/render_profile.py`](../scripts/render_profile.py)를 수정합니다. README의 기존 Claude 섹션 마커는 그대로 유지합니다.
