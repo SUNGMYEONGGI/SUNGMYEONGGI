@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="302" viewBox="0 0 900 302" role="img" aria-labelledby="title desc">
-  <title id="title">1일 1억 토큰</title>
+  <title id="title">100M Token per day on github</title>
   <desc id="desc">A terminal types ./daily_routine.sh, then prints the daily goal of 100,000,000 tokens, commits optional, sleep undefined, and inference running. This is a goal, not measured usage.</desc>
   <defs>
     <clipPath id="command-clip"><rect class="type-command" x="50" y="62" width="250" height="29"/></clipPath>
@@ -27,7 +27,7 @@
   <text x="450" y="24" text-anchor="middle" style="font-size:11px;fill:#9198a1">daily_routine.sh</text>
   <text x="28" y="83" style="fill:#3fb950">$</text>
   <g clip-path="url(#command-clip)"><text x="50" y="83">./daily_routine.sh</text></g>
-  <text x="28" y="135" class="headline">1일 1억 토큰</text>
+  <text x="28" y="135" class="headline">100M Token per day on github</text>
   <text x="28" y="177" class="line-one" xml:space="preserve">tokens ........ <tspan fill="#3fb950">100,000,000</tspan><tspan fill="#6e7681"> / day</tspan></text>
   <text x="28" y="203" class="line-two" xml:space="preserve">commits ....... <tspan fill="#9198a1">optional</tspan></text>
   <text x="28" y="229" class="line-three" xml:space="preserve">sleep ......... <tspan fill="#9198a1">undefined</tspan></text>
