@@ -53,7 +53,7 @@ def validate(data):
             "days": dict(sorted(days.items())), "summary": summary}
 
 
-def from_usage(usage, previous=None, *, updated_at=None):
+def from_usage(usage, previous=None, *, updated_at=None, through=None):
     buckets = usage.get("dailyUsageBuckets")
     if not isinstance(buckets, list) or not buckets:
         raise ValueError("dailyUsageBuckets is absent or empty; nothing was published.")
@@ -66,9 +66,13 @@ def from_usage(usage, previous=None, *, updated_at=None):
     old = validate(previous)["days"] if previous is not None else {}
     # Buckets are cumulative snapshots. Replace overlapping dates, including
     # downward corrections; retain older dates outside the returned window.
+    merged = {**old, **days}
+    if through is not None:
+        limit = day(through)
+        merged = {key: value for key, value in merged.items() if key <= limit}
     return validate({"schemaVersion": 1, "source": SOURCE,
                      "updatedAt": updated_at or utc_now(),
-                     "days": {**old, **days}, "summary": usage.get("summary", {})})
+                     "days": merged, "summary": usage.get("summary", {})})
 
 
 def dumps(data):

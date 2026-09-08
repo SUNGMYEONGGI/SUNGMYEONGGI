@@ -6,11 +6,11 @@
 
 ```text
 이 Linux 컴퓨터의 Codex 로그인
-  → 사용자 systemd 타이머: 매시간 07분
-  → scripts/sync_usage.py: account/usage/read 조회
+  → 사용자 systemd 타이머: 매일 00:00 (Asia/Seoul, UTC+9)
+  → scripts/daily_update.py: 전날까지의 account/usage/read 기록 수집
   → 공개 Gist: token-activity.json
-  → GitHub Actions: 매시간 23분
-  → token-assets 브랜치: 밝은/어두운 SVG
+  → 수집 성공 직후 GitHub Actions를 1회 호출
+  → token-assets 브랜치: 밝은/어두운 오션 SVG
   → main 브랜치 README에서 이미지 표시
 ```
 
@@ -18,6 +18,8 @@
 - Gist 주소와 ID는 [`profile.json`](../profile.json)에 있습니다. 저장소 Actions 변수 `TOKEN_GIST_URL`은 그 안의 `gist_raw_url`과 같습니다.
 - 수집기는 기존 `gh` 로그인의 `gist` 권한을 사용합니다. 이 설정을 위해 새 PAT를 발급하거나 기존 인증키를 복사하지 않았습니다. 필요하면 `GH_TOKEN`으로 Gists 쓰기 권한의 별도 인증을 사용할 수 있습니다.
 - Actions는 저장소에 기본 제공되는 `GITHUB_TOKEN`의 `contents: write`로 이미지 브랜치만 갱신합니다. 별도 Actions secret은 없습니다.
+- 독립적인 Actions 예약과 push 트리거는 제거했습니다. 로컬 자정 작업이 Gist를 갱신한 다음 `workflow_dispatch`로 이미지 생성을 호출합니다. 수집 후 GitHub 실행 대기와 렌더링 시간이 있어 이미지 표시는 00:00보다 조금 늦을 수 있습니다.
+- `.local/daily-update.json`에 전일 기준 실행 상태를 저장해 같은 날 재실행을 건너뜁니다. Gist 갱신 후 Actions 호출이 실패하면 다시 실행했을 때 호출만 재시도합니다. 기존 GitHub CLI 인증의 workflow 권한을 사용합니다.
 - `assets/daily-routine.svg`는 고정 목표 배너입니다. 명령이 타이핑되고 문구가 출력된 뒤 커서만 깜빡입니다. 동작 줄이기 설정에서는 완성된 화면이 바로 표시됩니다. `daily_routine.sh`를 실제로 실행하지 않습니다.
 - SVG 생성 결과는 `token-assets` 브랜치에서 관리합니다. 로컬 `assets/token-activity-*.svg`는 미리보기용이며 Git 추적 대상에서 제외됩니다.
 
@@ -29,15 +31,18 @@
 |---|---|
 | 같은 날짜 재조회 | 최신 누적값으로 교체. 더하지 않음. 하향 정정도 반영 |
 | 응답에 없는 과거 날짜 | 기존 Gist 기록 유지 |
+| 반영 날짜 | 한국 시간으로 전날까지. 당일·미래 날짜는 Gist 병합과 이미지 표시에서 제외 |
 | 일별 버킷 없음/빈 배열/조회 실패 | 게시 중단. 마지막 정상 Gist와 SVG 보존 |
 | 날짜별 누락 | 테두리만 있는 `No data` 셀. 실제 0토큰 셀과 구분 |
 | 일별 날짜 | API의 `startDate`를 그대로 보존. 시간대를 추측해 재배정하지 않음 |
-| 표시 범위 | 서울 날짜 기준 최근 365일, 일요일 시작 53주 격자. 범위 밖 셀은 비움 |
+| 표시 범위 | 전날을 마지막 날짜로 하는 최근 365일, 일요일 시작 53주 격자. 범위 밖 셀은 비움 |
 | 상단 합계 | 표시 범위 안에 실제 기록된 날짜의 합. lifetime과 별도 |
-| 색상 | 0 / 1~999만 / 1,000만~2,999만 / 3,000만~9,999만 / 1억 이상 |
+| 색상 | 오션 팔레트. 라이트: 연하늘→짙은 파랑, 다크: 심해 파랑→밝은 시안. 구간은 0 / 1~999만 / 1,000만~2,999만 / 3,000만~9,999만 / 1억 이상 |
 | 신선도 | 마지막 성공 조회 시각을 UTC로 표시. 48시간 넘으면 `Sync delayed` |
 
 공개되는 JSON은 스키마 버전, 출처, 갱신 시각, 일별 토큰 수, 허용된 사용량 요약뿐입니다. 대화·세션 파일과 `auth.json`을 읽지 않으며, 계정 인증은 Codex와 GitHub CLI가 처리합니다. 조회 과정에서 모델 추론을 실행하지 않습니다.
+
+API가 자정에 전날의 집계를 아직 제공하지 않을 수 있습니다. 2026-09-09 00:00 KST 조회에서도 최신 버킷은 2026-09-07이었습니다. 없는 날짜를 0으로 만들거나 기존 날짜로 바꾸지 않습니다. 이후 일별 조회에서 지연된 기록이 제공되면 함께 보완합니다. API의 날짜별 기록을 한국 시간 24시간 합계로 다시 계산하는 기능은 제공되지 않습니다. `summary`는 조회 시점의 원본 계정 요약이며 잔디의 전날까지 합계와 별개입니다.
 
 ## 확인 및 수동 실행
 
@@ -51,8 +56,10 @@ gh auth status
 # 읽기만 수행
 python3 scripts/sync_usage.py probe
 
-# Gist 동기화 후 Actions 실행
-python3 scripts/sync_usage.py sync
+# 하루 1회 수집 → Actions 호출 (오늘 실행했으면 건너뜀)
+python3 scripts/daily_update.py
+
+# 디자인 변경 후 기존 데이터로 이미지만 수동 재생성
 gh workflow run token-grass.yml --repo SUNGMYEONGGI/SUNGMYEONGGI
 
 # 예약 작업과 최근 실행 확인
@@ -62,7 +69,7 @@ journalctl --user -u github-token-profile.service -n 30 --no-pager
 gh run list --repo SUNGMYEONGGI/SUNGMYEONGGI --workflow token-grass.yml --limit 5
 ```
 
-로컬 수집은 이 컴퓨터와 사용자 서비스가 실행 중이어야 합니다. 꺼져 있으면 Gist 갱신이 멈춥니다. 타이머의 `Persistent=true`는 다음 서비스 시작 때 놓친 실행을 한 번 처리합니다. 로그인 없이도 사용자 서비스를 유지하려면 해당 시스템에서 `loginctl enable-linger` 지원과 권한이 필요합니다. GitHub Actions 예약 실행과 GitHub 이미지 캐시는 갱신을 지연시킬 수 있습니다.
+로컬 수집은 이 컴퓨터와 사용자 서비스가 실행 중이어야 합니다. 꺼져 있으면 Gist 갱신이 멈춥니다. 타이머의 `Persistent=true`는 다음 서비스 시작 때 놓친 실행을 한 번 처리합니다. 다음 실행 시점의 전날까지 수집하며, 하루 중복 방지 기록을 확인합니다. 로그인 없이도 사용자 서비스를 유지하려면 해당 시스템에서 `loginctl enable-linger` 지원과 권한이 필요합니다. GitHub 실행 대기와 이미지 캐시는 표시를 지연시킬 수 있습니다.
 
 Codex 확장 버전이 바뀌면 수집기는 PATH의 Codex 또는 최신 VS Code Remote 확장 바이너리를 찾습니다. 다른 위치는 `TOKEN_PROFILE_CODEX`로 지정할 수 있습니다. 토큰 활동 메서드가 없어지거나 로그인 세션이 만료되면 수집 로그를 확인하고 Codex를 갱신하거나 다시 로그인합니다.
 

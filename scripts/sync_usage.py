@@ -120,7 +120,7 @@ def gh_api(endpoint, *, payload=None):
     return json.loads(result.stdout)
 
 
-def sync(config, usage):
+def sync(config, usage, *, through=None):
     import re
     gist_id = config["gist_id"]
     if not re.fullmatch(r"[a-f0-9]{32}", gist_id):
@@ -133,7 +133,7 @@ def sync(config, usage):
     if file is None or file.get("truncated"):
         raise ValueError("Gist data is missing or truncated; refusing to overwrite it.")
     previous = json.loads(file["content"])
-    data = from_usage(usage, previous)
+    data = from_usage(usage, previous, through=through)
     gh_api(f"gists/{gist_id}", payload={"files": {filename: {"content": dumps(data)}}})
     return data
 

@@ -18,9 +18,9 @@ from token_data import MAX_BYTES, validate
 ROOT = Path(__file__).resolve().parents[1]
 PALETTES = {
     "light": {"bg": "#ffffff", "text": "#1f2328", "muted": "#59636e", "border": "#d1d9e0",
-              "levels": ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"]},
+              "levels": ["#ebedf0", "#bae6fd", "#38bdf8", "#0284c7", "#075985"]},
     "dark": {"bg": "#0d1117", "text": "#f0f6fc", "muted": "#9198a1", "border": "#3d444d",
-             "levels": ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"]},
+             "levels": ["#161b22", "#0c4a6e", "#0369a1", "#0ea5e9", "#67e8f9"]},
 }
 MONTHS = ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 
@@ -46,7 +46,7 @@ def grid_dates(today):
 def render_grass(data, theme, *, today=None, now=None):
     data = validate(data)
     now = now or datetime.now(timezone.utc)
-    today = today or now.astimezone(ZoneInfo("Asia/Seoul")).date()
+    today = today or (now.astimezone(ZoneInfo("Asia/Seoul")).date() - timedelta(days=1))
     cutoff = today - timedelta(days=364)
     days = data["days"]
     observed = {key: value for key, value in days.items() if cutoff <= date.fromisoformat(key) <= today}
@@ -57,7 +57,7 @@ def render_grass(data, theme, *, today=None, now=None):
     title = f"{total:,} tokens in the last year"
     result = [f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="238" viewBox="0 0 900 238" role="img" aria-labelledby="title desc">
   <title id="title">{title}</title>
-  <desc id="desc">Codex token activity. {len(observed)} recorded days. Each square is one day. Darkest green means at least 100 million tokens. Outlined squares mean no data. Daily dates are preserved from the account usage service.</desc>
+  <desc id="desc">Codex token activity through {today.isoformat()}. {len(observed)} recorded days. Each square is one day. Ocean palette: the highest color level means at least 100 million tokens. Outlined squares mean no data. Daily dates are preserved from the account usage service.</desc>
   <style>text {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: {p['muted']}; font-size: 11px; }}</style>
   <text x="1" y="22" style="font-size:16px;fill:{p['text']}">{title}</text>
   <text x="899" y="22" text-anchor="end">Codex · {len(observed)} recorded days</text>
@@ -85,7 +85,7 @@ def render_grass(data, theme, *, today=None, now=None):
         else:
             tokens = days[key]
             result.append(f'<rect {attrs} fill="{p["levels"][level(tokens)]}" data-tokens="{tokens}" data-level="{level(tokens)}"><title>{key}: {tokens:,} tokens</title></rect>')
-    result.append(f'<text x="16" y="196">Token Contributions</text>')
+    result.append(f'<text x="16" y="196">Token Contributions · through {today.isoformat()}</text>')
     result.append(f'<rect x="622" y="186" width="10" height="10" rx="2" fill="{p["bg"]}" stroke="{p["border"]}" stroke-width="0.6"/><text x="638" y="195">No data</text>')
     result.append('<text x="705" y="195">Less</text>')
     for i, color in enumerate(p["levels"]):

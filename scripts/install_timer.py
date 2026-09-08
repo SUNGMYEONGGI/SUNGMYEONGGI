@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Install/remove the hourly Linux user timer. Requires an existing Codex/gh login."""
+"""Install/remove the midnight Linux user timer. Requires an existing Codex/gh login."""
 import argparse
+import json
 from pathlib import Path
 import subprocess
 import sys
+from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 UNIT = "github-token-profile"
@@ -30,10 +32,13 @@ def main():
         return
     if not (ROOT / "profile.json").exists():
         parser.error("Configure profile.json before installing the timer.")
+    config = json.loads((ROOT / "profile.json").read_text())
+    zone = config["display_timezone"]
+    ZoneInfo(zone)
     units.mkdir(parents=True, exist_ok=True)
     local_path = str(Path.home() / ".local/bin") + ":/usr/local/bin:/usr/bin:/bin:/snap/bin"
     service = f'''[Unit]
-Description=Sync Codex daily token activity to GitHub Gist
+Description=Sync yesterday's Codex activity and update GitHub token grass
 Wants=network-online.target
 After=network-online.target
 
@@ -41,17 +46,18 @@ After=network-online.target
 Type=oneshot
 WorkingDirectory={str(ROOT).replace('%', '%%')}
 Environment="PATH={local_path}"
-ExecStart={quote(sys.executable)} {quote(ROOT / 'scripts/sync_usage.py')} sync
-TimeoutStartSec=240
+ExecStart={quote(sys.executable)} {quote(ROOT / 'scripts/daily_update.py')}
+TimeoutStartSec=300
 UMask=0077
 '''
-    timer = '''[Unit]
-Description=Refresh GitHub token activity every hour
+    timer = f'''[Unit]
+Description=Refresh yesterday's GitHub token activity once at midnight
 
 [Timer]
-OnCalendar=*-*-* *:07:00
+OnCalendar=*-*-* 00:00:00 {zone}
 Persistent=true
-RandomizedDelaySec=30
+AccuracySec=1s
+RandomizedDelaySec=0
 Unit=github-token-profile.service
 
 [Install]
@@ -60,8 +66,9 @@ WantedBy=timers.target
     (units / f"{UNIT}.service").write_text(service)
     (units / f"{UNIT}.timer").write_text(timer)
     subprocess.run(["systemctl", "--user", "daemon-reload"], check=True)
-    subprocess.run(["systemctl", "--user", "enable", "--now", UNIT + ".timer"], check=True)
-    print("Installed hourly timer (:07 local time); missed runs resume when the user service starts.")
+    subprocess.run(["systemctl", "--user", "enable", UNIT + ".timer"], check=True)
+    subprocess.run(["systemctl", "--user", "restart", UNIT + ".timer"], check=True)
+    print(f"Installed daily timer (00:00 {zone}); missed runs resume once and duplicate days are skipped.")
 
 
 if __name__ == "__main__":

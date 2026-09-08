@@ -1,14 +1,12 @@
 name: Update token grass
 
 on:
-  schedule:
-    - cron: '23 * * * *'
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - 'scripts/**'
-      - '.github/workflows/token-grass.yml'
+    inputs:
+      through_date:
+        description: 'Last date to show (YYYY-MM-DD; default: yesterday in Asia/Seoul)'
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -27,10 +25,15 @@ jobs:
       - name: Generate light and dark token grass
         env:
           TOKEN_GIST_URL: ${{ vars.TOKEN_GIST_URL }}
+          THROUGH_DATE: ${{ inputs.through_date }}
         run: |
+          date_args=()
+          if [[ -n "$THROUGH_DATE" ]]; then
+            date_args+=(--today "$THROUGH_DATE")
+          fi
           python3 scripts/render_profile.py \
             --gist-url "$TOKEN_GIST_URL" \
-            --output "$RUNNER_TEMP/token-output"
+            --output "$RUNNER_TEMP/token-output" "${date_args[@]}"
       - name: Publish generated images
         env:
           TOKEN_OUTPUT: ${{ runner.temp }}/token-output
