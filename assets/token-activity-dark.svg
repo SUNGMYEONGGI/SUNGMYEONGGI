@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="238" viewBox="0 0 900 238" role="img" aria-labelledby="title desc">
-  <title id="title">250,349,005 tokens in the last year</title>
-  <desc id="desc">Codex token activity through 2026-09-08. 12 recorded days. Each square is one day. Ocean palette: the highest color level means at least 100 million tokens. Outlined squares mean no data. Daily dates are preserved from the account usage service.</desc>
+  <title id="title">395,699,541 tokens in the last year</title>
+  <desc id="desc">Codex + Claude combined token activity through 2026-09-08. 24 recorded days. Each square is one day and combines the available token counts. Ocean palette: the highest color level means at least 100 million tokens. Outlined squares mean no data.</desc>
   <style>text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #9198a1; font-size: 11px; }</style>
-  <text x="1" y="22" style="font-size:16px;fill:#f0f6fc">250,349,005 tokens in the last year</text>
-  <text x="899" y="22" text-anchor="end">Codex · 12 recorded days</text>
+  <text x="1" y="22" style="font-size:16px;fill:#f0f6fc">395,699,541 tokens in the last year</text>
+  <text x="899" y="22" text-anchor="end">Codex + Claude · 24 recorded days</text>
   <rect x="0.5" y="40.5" width="899" height="171" rx="6" fill="#0d1117" stroke="#3d444d"/>
 
 <text x="48" y="63">Sep</text>
@@ -346,7 +346,7 @@
 <rect x="723" y="166" width="12" height="12" rx="2" data-date="2026-07-25" fill="#0d1117" stroke="#3d444d" stroke-opacity="0.5" stroke-width="0.6" data-state="unknown"><title>2026-07-25: no data reported</title></rect>
 <rect x="738" y="76" width="12" height="12" rx="2" data-date="2026-07-26" fill="#0d1117" stroke="#3d444d" stroke-opacity="0.5" stroke-width="0.6" data-state="unknown"><title>2026-07-26: no data reported</title></rect>
 <rect x="738" y="91" width="12" height="12" rx="2" data-date="2026-07-27" fill="#0d1117" stroke="#3d444d" stroke-opacity="0.5" stroke-width="0.6" data-state="unknown"><title>2026-07-27: no data reported</title></rect>
-<rect x="738" y="106" width="12" height="12" rx="2" data-date="2026-07-28" fill="#0d1117" stroke="#3d444d" stroke-opacity="0.5" stroke-width="0.6" data-state="unknown"><title>2026-07-28: no data reported</title></rect>
+<rect x="738" y="106" width="12" height="12" rx="2" data-date="2026-07-28" fill="#0c4a6e" data-tokens="152336" data-level="1"><title>2026-07-28: 152,336 tokens</title></rect>
 <rect x="738" y="121" width="12" height="12" rx="2" data-date="2026-07-29" fill="#0d1117" stroke="#3d444d" stroke-opacity="0.5" stroke-width="0.6" data-state="unknown"><title>2026-07-29: no data reported</title></rect>
 <rect x="738" y="136" width="12" height="12" rx="2" data-date="2026-07-30" fill="#0d1117" stroke="#3d444d" stroke-opacity="0.5" stroke-width="0.6" data-state="unknown"><title>2026-07-30: no data reported</title></rect>
 <rect x="738" y="151" width="12" height="12" rx="2" data-date="2026-07-31" fill="#0d1117" stroke="#3d444d" stroke-opacity="0.5" stroke-width="0.6" data-state="unknown"><title>2026-07-31: no data reported</title></rect>
@@ -375,19 +375,19 @@
 <rect x="798" y="76" width="12" height="12" rx="2" data-date="2026-08-23" fill="#0d1117" stroke="#3d444d" stroke-opacity="0.5" stroke-width="0.6" data-state="unknown"><title>2026-08-23: no data reported</title></rect>
 <rect x="798" y="91" width="12" height="12" rx="2" data-date="2026-08-24" fill="#0d1117" stroke="#3d444d" stroke-opacity="0.5" stroke-width="0.6" data-state="unknown"><title>2026-08-24: no data reported</title></rect>
 <rect x="798" y="106" width="12" height="12" rx="2" data-date="2026-08-25" fill="#0d1117" stroke="#3d444d" stroke-opacity="0.5" stroke-width="0.6" data-state="unknown"><title>2026-08-25: no data reported</title></rect>
-<rect x="798" y="121" width="12" height="12" rx="2" data-date="2026-08-26" fill="#0d1117" stroke="#3d444d" stroke-opacity="0.5" stroke-width="0.6" data-state="unknown"><title>2026-08-26: no data reported</title></rect>
-<rect x="798" y="136" width="12" height="12" rx="2" data-date="2026-08-27" fill="#0d1117" stroke="#3d444d" stroke-opacity="0.5" stroke-width="0.6" data-state="unknown"><title>2026-08-27: no data reported</title></rect>
-<rect x="798" y="151" width="12" height="12" rx="2" data-date="2026-08-28" fill="#0d1117" stroke="#3d444d" stroke-opacity="0.5" stroke-width="0.6" data-state="unknown"><title>2026-08-28: no data reported</title></rect>
-<rect x="798" y="166" width="12" height="12" rx="2" data-date="2026-08-29" fill="#0d1117" stroke="#3d444d" stroke-opacity="0.5" stroke-width="0.6" data-state="unknown"><title>2026-08-29: no data reported</title></rect>
-<rect x="813" y="76" width="12" height="12" rx="2" data-date="2026-08-30" fill="#0d1117" stroke="#3d444d" stroke-opacity="0.5" stroke-width="0.6" data-state="unknown"><title>2026-08-30: no data reported</title></rect>
-<rect x="813" y="91" width="12" height="12" rx="2" data-date="2026-08-31" fill="#0d1117" stroke="#3d444d" stroke-opacity="0.5" stroke-width="0.6" data-state="unknown"><title>2026-08-31: no data reported</title></rect>
-<rect x="813" y="106" width="12" height="12" rx="2" data-date="2026-09-01" fill="#0d1117" stroke="#3d444d" stroke-opacity="0.5" stroke-width="0.6" data-state="unknown"><title>2026-09-01: no data reported</title></rect>
-<rect x="813" y="121" width="12" height="12" rx="2" data-date="2026-09-02" fill="#0d1117" stroke="#3d444d" stroke-opacity="0.5" stroke-width="0.6" data-state="unknown"><title>2026-09-02: no data reported</title></rect>
-<rect x="813" y="136" width="12" height="12" rx="2" data-date="2026-09-03" fill="#0d1117" stroke="#3d444d" stroke-opacity="0.5" stroke-width="0.6" data-state="unknown"><title>2026-09-03: no data reported</title></rect>
-<rect x="813" y="151" width="12" height="12" rx="2" data-date="2026-09-04" fill="#0d1117" stroke="#3d444d" stroke-opacity="0.5" stroke-width="0.6" data-state="unknown"><title>2026-09-04: no data reported</title></rect>
-<rect x="813" y="166" width="12" height="12" rx="2" data-date="2026-09-05" fill="#0d1117" stroke="#3d444d" stroke-opacity="0.5" stroke-width="0.6" data-state="unknown"><title>2026-09-05: no data reported</title></rect>
-<rect x="828" y="76" width="12" height="12" rx="2" data-date="2026-09-06" fill="#67e8f9" data-tokens="138978222" data-level="4"><title>2026-09-06: 138,978,222 tokens</title></rect>
-<rect x="828" y="91" width="12" height="12" rx="2" data-date="2026-09-07" fill="#67e8f9" data-tokens="105037768" data-level="4"><title>2026-09-07: 105,037,768 tokens</title></rect>
+<rect x="798" y="121" width="12" height="12" rx="2" data-date="2026-08-26" fill="#0c4a6e" data-tokens="2832218" data-level="1"><title>2026-08-26: 2,832,218 tokens</title></rect>
+<rect x="798" y="136" width="12" height="12" rx="2" data-date="2026-08-27" fill="#0c4a6e" data-tokens="581907" data-level="1"><title>2026-08-27: 581,907 tokens</title></rect>
+<rect x="798" y="151" width="12" height="12" rx="2" data-date="2026-08-28" fill="#0369a1" data-tokens="10033750" data-level="2"><title>2026-08-28: 10,033,750 tokens</title></rect>
+<rect x="798" y="166" width="12" height="12" rx="2" data-date="2026-08-29" fill="#0c4a6e" data-tokens="276058" data-level="1"><title>2026-08-29: 276,058 tokens</title></rect>
+<rect x="813" y="76" width="12" height="12" rx="2" data-date="2026-08-30" fill="#0369a1" data-tokens="14801334" data-level="2"><title>2026-08-30: 14,801,334 tokens</title></rect>
+<rect x="813" y="91" width="12" height="12" rx="2" data-date="2026-08-31" fill="#0369a1" data-tokens="19256924" data-level="2"><title>2026-08-31: 19,256,924 tokens</title></rect>
+<rect x="813" y="106" width="12" height="12" rx="2" data-date="2026-09-01" fill="#0369a1" data-tokens="22795828" data-level="2"><title>2026-09-01: 22,795,828 tokens</title></rect>
+<rect x="813" y="121" width="12" height="12" rx="2" data-date="2026-09-02" fill="#0c4a6e" data-tokens="8959486" data-level="1"><title>2026-09-02: 8,959,486 tokens</title></rect>
+<rect x="813" y="136" width="12" height="12" rx="2" data-date="2026-09-03" fill="#0369a1" data-tokens="29475429" data-level="2"><title>2026-09-03: 29,475,429 tokens</title></rect>
+<rect x="813" y="151" width="12" height="12" rx="2" data-date="2026-09-04" fill="#0369a1" data-tokens="20591464" data-level="2"><title>2026-09-04: 20,591,464 tokens</title></rect>
+<rect x="813" y="166" width="12" height="12" rx="2" data-date="2026-09-05" fill="#0c4a6e" data-tokens="1701857" data-level="1"><title>2026-09-05: 1,701,857 tokens</title></rect>
+<rect x="828" y="76" width="12" height="12" rx="2" data-date="2026-09-06" fill="#67e8f9" data-tokens="139560395" data-level="4"><title>2026-09-06: 139,560,395 tokens</title></rect>
+<rect x="828" y="91" width="12" height="12" rx="2" data-date="2026-09-07" fill="#67e8f9" data-tokens="118347540" data-level="4"><title>2026-09-07: 118,347,540 tokens</title></rect>
 <rect x="828" y="106" width="12" height="12" rx="2" data-date="2026-09-08" fill="#0d1117" stroke="#3d444d" stroke-opacity="0.5" stroke-width="0.6" data-state="unknown"><title>2026-09-08: no data reported</title></rect>
 <rect x="828" y="121" width="12" height="12" rx="2" data-date="2026-09-09" fill="none" data-state="outside-window"/>
 <rect x="828" y="136" width="12" height="12" rx="2" data-date="2026-09-10" fill="none" data-state="outside-window"/>
@@ -402,6 +402,6 @@
 <rect x="779" y="184" width="12" height="12" rx="2" fill="#0ea5e9"/>
 <rect x="794" y="184" width="12" height="12" rx="2" fill="#67e8f9"/>
 <text x="816" y="195">More</text>
-<text x="1" y="232">Last sync: 2026-09-08 15:05 UTC</text>
+<text x="1" y="232">Last sync: 2026-09-08 15:41 UTC</text>
 <text x="899" y="232" text-anchor="end">Daily goal: 100,000,000 tokens</text>
 </svg>
