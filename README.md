@@ -1,3 +1,15 @@
+<p align="center">
+  <img src="./assets/daily-routine.svg" width="100%" alt="1일 1억 토큰: 하루 1억 토큰을 목표로 하는 터미널 배너" />
+</p>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SUNGMYEONGGI/SUNGMYEONGGI/token-assets/assets/token-activity-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/SUNGMYEONGGI/SUNGMYEONGGI/token-assets/assets/token-activity-light.svg" />
+  <img src="https://raw.githubusercontent.com/SUNGMYEONGGI/SUNGMYEONGGI/token-assets/assets/token-activity-light.svg" width="100%" alt="Codex 실제 일별 토큰 사용량으로 채운 GitHub 스타일 잔디" />
+</picture>
+
+<br />
+
 <img src="https://cdn3.ldstatic.com/original/4X/6/f/3/6f34b405e13552496c3a1c13dec72be8daabcac1.gif" width="200">
 
 #### 🤖 Claude Code Usage

@@ -1,0 +1,41 @@
+name: Update token grass
+
+on:
+  schedule:
+    - cron: '23 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+      - 'tests/**'
+      - '.github/workflows/token-grass.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: token-grass
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Validate collector and renderer
+        run: python3 -m unittest discover -s tests -v
+      - name: Generate light and dark token grass
+        env:
+          TOKEN_GIST_URL: ${{ vars.TOKEN_GIST_URL }}
+        run: |
+          python3 scripts/render_profile.py \
+            --gist-url "$TOKEN_GIST_URL" \
+            --output "$RUNNER_TEMP/token-output"
+      - name: Publish generated images
+        env:
+          TOKEN_OUTPUT: ${{ runner.temp }}/token-output
+          TOKEN_PUBLISH: ${{ runner.temp }}/token-publish
+        run: bash scripts/publish_assets.sh

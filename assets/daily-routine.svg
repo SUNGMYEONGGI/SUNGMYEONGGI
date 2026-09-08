@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="302" viewBox="0 0 900 302" role="img" aria-labelledby="title desc">
+  <title id="title">1일 1억 토큰</title>
+  <desc id="desc">A terminal types ./daily_routine.sh, then prints the daily goal of 100,000,000 tokens, commits optional, sleep undefined, and inference running. This is a goal, not measured usage.</desc>
+  <defs>
+    <clipPath id="command-clip"><rect class="type-command" x="50" y="62" width="250" height="29"/></clipPath>
+  </defs>
+  <style>
+    text { font-family: "SFMono-Regular", Consolas, "Liberation Mono", "DejaVu Sans Mono", monospace; font-size: 15px; fill: #c9d1d9; }
+    .type-command { animation: type 1.35s steps(18, end) .35s both; }
+    .headline { font-family: "Noto Sans CJK KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; font-size: 33px; font-weight: 700; fill: #f0f6fc; animation: show .01s 1.95s both; }
+    .line-one { animation: show .01s 2.35s both; }
+    .line-two { animation: show .01s 2.65s both; }
+    .line-three { animation: show .01s 2.95s both; }
+    .status { animation: show .01s 3.45s both; }
+    .cursor { animation: blink 1.1s step-end infinite; }
+    @keyframes type { from { width: 0; } to { width: 250px; } }
+    @keyframes show { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes blink { 0%, 48% { opacity: 1; } 49%, 100% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .type-command, .headline, .line-one, .line-two, .line-three, .status, .cursor { animation: none; } }
+  </style>
+  <rect x=".5" y=".5" width="899" height="301" rx="10" fill="#0d1117" stroke="#30363d"/>
+  <path d="M 10,1 H 890 Q 899,1 899,10 V 39 H 1 V 10 Q 1,1 10,1" fill="#161b22"/>
+  <path d="M 1,39 H 899" stroke="#30363d"/>
+  <circle cx="23" cy="20" r="5" fill="#ff5f57"/>
+  <circle cx="42" cy="20" r="5" fill="#febc2e"/>
+  <circle cx="61" cy="20" r="5" fill="#28c840"/>
+  <text x="450" y="24" text-anchor="middle" style="font-size:11px;fill:#9198a1">daily_routine.sh</text>
+  <text x="28" y="83" style="fill:#3fb950">$</text>
+  <g clip-path="url(#command-clip)"><text x="50" y="83">./daily_routine.sh</text></g>
+  <text x="28" y="135" class="headline">1일 1억 토큰</text>
+  <text x="28" y="177" class="line-one" xml:space="preserve">tokens ........ <tspan fill="#3fb950">100,000,000</tspan><tspan fill="#6e7681"> / day</tspan></text>
+  <text x="28" y="203" class="line-two" xml:space="preserve">commits ....... <tspan fill="#9198a1">optional</tspan></text>
+  <text x="28" y="229" class="line-three" xml:space="preserve">sleep ......... <tspan fill="#9198a1">undefined</tspan></text>
+  <g class="status">
+    <text x="28" y="274" style="fill:#3fb950">&gt; inference running</text>
+    <rect x="204" y="260" width="8" height="17" fill="#3fb950" class="cursor"/>
+  </g>
+</svg>
