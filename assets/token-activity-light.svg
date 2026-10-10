@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="238" viewBox="0 0 900 238" role="img" aria-labelledby="title desc">
-  <title id="title">4,440,818,889 tokens in the last year</title>
-  <desc id="desc">Codex + Claude combined token activity through 2026-10-09. 54 recorded days. Each square is one day and combines the available token counts. Ocean palette: the highest color level means at least 100 million tokens. Outlined squares mean no data.</desc>
+  <title id="title">4,491,452,050 tokens in the last year</title>
+  <desc id="desc">Codex + Claude combined token activity through 2026-10-10. 54 recorded days. Each square is one day and combines the available token counts. Ocean palette: the highest color level means at least 100 million tokens. Outlined squares mean no data.</desc>
   <style>text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #59636e; font-size: 11px; }</style>
-  <text x="1" y="22" style="font-size:16px;fill:#1f2328">4,440,818,889 tokens in the last year</text>
+  <text x="1" y="22" style="font-size:16px;fill:#1f2328">4,491,452,050 tokens in the last year</text>
   <text x="899" y="22" text-anchor="end">Codex + Claude · 54 recorded days</text>
   <rect x="0.5" y="40.5" width="899" height="171" rx="6" fill="#ffffff" stroke="#d1d9e0"/>
 
@@ -27,7 +27,7 @@
 <rect x="48" y="106" width="12" height="12" rx="2" data-date="2025-10-07" fill="none" data-state="outside-window"/>
 <rect x="48" y="121" width="12" height="12" rx="2" data-date="2025-10-08" fill="none" data-state="outside-window"/>
 <rect x="48" y="136" width="12" height="12" rx="2" data-date="2025-10-09" fill="none" data-state="outside-window"/>
-<rect x="48" y="151" width="12" height="12" rx="2" data-date="2025-10-10" fill="#ffffff" stroke="#d1d9e0" stroke-opacity="0.5" stroke-width="0.6" data-state="unknown"><title>2025-10-10: no data reported</title></rect>
+<rect x="48" y="151" width="12" height="12" rx="2" data-date="2025-10-10" fill="none" data-state="outside-window"/>
 <rect x="48" y="166" width="12" height="12" rx="2" data-date="2025-10-11" fill="#ffffff" stroke="#d1d9e0" stroke-opacity="0.5" stroke-width="0.6" data-state="unknown"><title>2025-10-11: no data reported</title></rect>
 <rect x="63" y="76" width="12" height="12" rx="2" data-date="2025-10-12" fill="#ffffff" stroke="#d1d9e0" stroke-opacity="0.5" stroke-width="0.6" data-state="unknown"><title>2025-10-12: no data reported</title></rect>
 <rect x="63" y="91" width="12" height="12" rx="2" data-date="2025-10-13" fill="#ffffff" stroke="#d1d9e0" stroke-opacity="0.5" stroke-width="0.6" data-state="unknown"><title>2025-10-13: no data reported</title></rect>
@@ -391,9 +391,9 @@
 <rect x="828" y="106" width="12" height="12" rx="2" data-date="2026-10-06" fill="#075985" data-tokens="291874212" data-level="4"><title>2026-10-06: 291,874,212 tokens</title></rect>
 <rect x="828" y="121" width="12" height="12" rx="2" data-date="2026-10-07" fill="#075985" data-tokens="214442516" data-level="4"><title>2026-10-07: 214,442,516 tokens</title></rect>
 <rect x="828" y="136" width="12" height="12" rx="2" data-date="2026-10-08" fill="#075985" data-tokens="355297652" data-level="4"><title>2026-10-08: 355,297,652 tokens</title></rect>
-<rect x="828" y="151" width="12" height="12" rx="2" data-date="2026-10-09" fill="#bae6fd" data-tokens="5529009" data-level="1"><title>2026-10-09: 5,529,009 tokens</title></rect>
-<rect x="828" y="166" width="12" height="12" rx="2" data-date="2026-10-10" fill="none" data-state="outside-window"/>
-<text x="16" y="196">Token Contributions · through 2026-10-09</text>
+<rect x="828" y="151" width="12" height="12" rx="2" data-date="2026-10-09" fill="#0284c7" data-tokens="56162170" data-level="3"><title>2026-10-09: 56,162,170 tokens</title></rect>
+<rect x="828" y="166" width="12" height="12" rx="2" data-date="2026-10-10" fill="#ffffff" stroke="#d1d9e0" stroke-opacity="0.5" stroke-width="0.6" data-state="unknown"><title>2026-10-10: no data reported</title></rect>
+<text x="16" y="196">Token Contributions · through 2026-10-10</text>
 <rect x="622" y="186" width="10" height="10" rx="2" fill="#ffffff" stroke="#d1d9e0" stroke-width="0.6"/><text x="638" y="195">No data</text>
 <text x="705" y="195">Less</text>
 <rect x="734" y="184" width="12" height="12" rx="2" fill="#ebedf0"/>
@@ -402,6 +402,6 @@
 <rect x="779" y="184" width="12" height="12" rx="2" fill="#0284c7"/>
 <rect x="794" y="184" width="12" height="12" rx="2" fill="#075985"/>
 <text x="816" y="195">More</text>
-<text x="1" y="232">Last sync: 2026-10-09 15:00 UTC</text>
+<text x="1" y="232">Last sync: 2026-10-10 15:00 UTC</text>
 <text x="899" y="232" text-anchor="end">Daily goal: 100,000,000 tokens</text>
 </svg>
